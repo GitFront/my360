@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/jquery.fullPage.css"/>
+
+
+</head>
+<body>
+<!-- 页面结构 -->
+<div id="box">
+    <!--每一个class为section的div都是一屏,section这个类是固定的-->
+    <!-- 顶部固定导航-->
+    <div id="topnav">
+        <ul>
+            <li data-menuanchor="p1" class="active"><a href="#p1">顶部</a></li>
+            <li data-menuanchor="p2"><a href="#p2">安全防护</a></li>
+            <li data-menuanchor="p3"><a href="#p3">加速器</a></li>
+            <li data-menuanchor="p4"><a href="#p4">搜索框</a></li>
+            <li data-menuanchor="p5"><a href="#p5">时尚设计</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="logo"></div>
+        <div class="text">
+            <img src="images/text_1.png" alt=""/>
+            <img src="images/text_2.png" alt=""/>
+            <img src="images/text_3.png" alt=""/>
+            <img src="images/text_4.png" alt=""/>
+            <img src="images/text_5.png" alt=""/>
+            <img src="images/text_6.png" alt=""/>
+            <img src="images/text_7.png" alt=""/>
+            <img src="images/text_8.png" alt=""/>
+        </div>
+        <div class="info"></div>
+
+
+    </div>
+    <div class="section">
+        <div class="shield">
+            <img src="images/shield_1.png" alt=""/>
+            <img src="images/shield_2.png" alt=""/>
+            <img src="images/shield_3.png" alt=""/>
+            <img src="images/shield_4.png" alt=""/>
+            <img src="images/shield_5.png" alt=""/>
+            <img src="images/shield_6.png" alt=""/>
+            <img src="images/shield_7.png" alt=""/>
+            <img src="images/shield_8.png" alt=""/>
+            <img src="images/shield_9.png" alt=""/>
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section">
+        <div class="rocket"></div>
+        <div class="info"></div>
+        <div class="circle"></div>
+    </div>
+    <div class="section">
+        <div class="search">
+            <div class="search-result"></div>
+            <div class="key"></div>
+        </div>
+        <div class="info"></div>
+    </div>
+    <div class="section">
+        <div class="info"></div>
+        <div class="browser">
+            <div class="toolbar"></div>
+            <div class="extra"></div>
+            <div class="top-line"></div>
+            <div class="right-line"></div>
+            <div class="bottom-line"></div>
+            <div class="left-line"></div>
+            <div class="border"></div>
+            <div class="b-border"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#box").fullpage({
+                    sectionsColor: ['#0DA5D6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+                    verticalCentered: false,
+//                    continuousVertical: true,
+                    afterLoad: function (anchorLink, index) {
+//                        console.log(index);
+                        $(".section").removeClass("current");
+                        $(".section").eq(index - 1).addClass("current");
+                    },
+//                    verticalCentered:false,
+                    anchors: ['p1', 'p2', 'p3', 'p4', 'p5'],
+                    navigation: true,
+                    menu: '#topnav',
+                    navigationTooltips: ["顶部", "安全防护", "加速器", "搜索框", "时尚设计"]
+                }
+        );
+    });
+</script>
